@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Users</title>
+    <link rel="stylesheet" type="text/css" href="../table.css"/>
+</head>
+<body>
+<h1>List of all Classrooms</h1>
+<h2>As HTML list</h2>
+<ul>
+    <li th:each="classroom : ${classroomList}"
+        th:id="'classroom_' + ${classroom.name}">
+        <div><span><b>Name: </b></span><span th:text="'Name: ' + ${classroom.name}">name</span></div>
+        <div><span><b>Capacity: </b></span><span th:text="'Email: ' + ${classroom.capacity}">capacity</span></div>
+        <div><span><b>Orientation: </b></span><span
+                th:text="'Orientation: ' + ${classroom.orientation}">orientation</span></div>
+        <div><span><b>Plugs: </b></span><span th:text="'Plugs: ' + ${classroom.plugs}">plugs</span></div>
+    </li>
+</ul>
+
+<h2>As HTML table</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Capacity</th>
+        <th>Orientation</th>
+        <th>Plugs</th>
+    </tr>
+    <tr th:each="classroom : ${classroomList}">
+        <td th:text="${classroom.name}">Name</td>
+        <td th:text="${classroom.capacity}">Capacity</td>
+        <td th:text="${classroom.orientation}">Orientation</td>
+        <td th:text="${classroom.plugs}">Plugs</td>
+    </tr>
+</table>
+</body>
+</html>
